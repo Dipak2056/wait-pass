@@ -1,13 +1,22 @@
 import "./App.css";
+import Menu from "./components/Menu";
 
 function App() {
   return (
     <div className="wrapper">
       <div className="header-container">
         <h1>WAIT PASS</h1>
-        <div className="menu-button">
-          <i className="fa-solid fa-bars"></i>
+        <div className="cartmenu">
+          <div className="cart-button">
+            <i className="fa-solid fa-cart-shopping"></i>
+          </div>
+          <div className="menu-button">
+            <i className="fa-solid fa-bars"></i>
+          </div>
         </div>
+      </div>
+      <div className="nav-item">
+        <Menu></Menu>
       </div>
       <div className="main">
         <h3>
@@ -41,17 +50,11 @@ function App() {
                 <div className="item-detail-discription">
                   <p>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Sit, obcaecati.
+                    Sit, obcaecati. Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit.
                   </p>
-                </div>
-                <div className="watch-add">
                   <div className="watch-video">
                     <button className="watch-video-button">Watch video</button>
-                  </div>
-                  <div className="add-order">
-                    <button className="watch-video-button add-order-button">
-                      Add order
-                    </button>
                   </div>
                 </div>
               </div>
@@ -62,7 +65,14 @@ function App() {
                 />
               </div>
               <div className="item-price">
-                <p>$5.5</p>
+                <div className="item-price-price">
+                  <p>$5.5</p>
+                </div>
+                <div className="item-price-button">
+                  <button className="watch-video-button add-order-button">
+                    order
+                  </button>
+                </div>
               </div>
             </div>
             <div className="item">
@@ -84,18 +94,15 @@ function App() {
                 <div className="item-detail-discription">
                   <p>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Sit, obcaecati.
+                    Sit, obcaecati. Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit.
                   </p>
-                </div>
-                <div className="watch-add">
                   <div className="watch-video">
                     <button className="watch-video-button">Watch video</button>
                   </div>
-                  <div className="add-order">
-                    <button className="watch-video-button add-order-button">
-                      Add order
-                    </button>
-                  </div>
+                </div>
+                <div className="watch-add">
+                  <div className="add-order"></div>
                 </div>
               </div>
               <div className="item-image">
@@ -105,22 +112,37 @@ function App() {
                 />
               </div>
               <div className="item-price">
-                <p>$5.5</p>
+                <div className="item-price-price">
+                  <p>$5.5</p>
+                </div>
+                <div className="item-price-button">
+                  <button className="watch-video-button add-order-button">
+                    order
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div className="course">
-          <h4>entree</h4>
+          <div className="course-title">
+            <h4 className="course-startup">entree</h4>
+          </div>
         </div>
         <div className="course">
-          <h4>Main</h4>
+          <div className="course-title">
+            <h4 className="course-startup">main</h4>
+          </div>
         </div>
         <div className="course">
-          <h4>Dessert</h4>
+          <div className="course-title">
+            <h4 className="course-startup">kids</h4>
+          </div>
         </div>
         <div className="course">
-          <h4>Drinks</h4>
+          <div className="course-title">
+            <h4 className="course-startup">dessert</h4>
+          </div>
         </div>
       </div>
     </div>

@@ -8,6 +8,7 @@
   text-align: center;
   color: white;
   padding: 2px;
+  z-index: 1;
 }
 .header-container,
 .main,
@@ -18,8 +19,10 @@
   justify-content: space-between;
   padding: 5px;
 }
-.menu-button {
+.menu-button,
+.cart-button {
   font-size: 30px;
+  margin: 5px;
 }
 .main {
   flex-direction: column;
@@ -34,10 +37,18 @@
 .course-title {
   background: white;
   color: black;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  display: flex;
+  padding: 3px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 5px 5px 15px 0px white;
 }
 
 .course-startup {
-  font-family: "Times New Roman", Times, serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding: 0;
 }
 .course-body {
@@ -49,6 +60,9 @@
   align-items: center;
   text-align: left;
   margin-bottom: 15px;
+}
+.item-info {
+  display: flex;
 }
 .vegan {
   color: rgb(12, 236, 12);
@@ -73,15 +87,20 @@
   display: flex;
 }
 .item-image {
-  max-height: 150px;
-  max-width: 150px;
+  max-height: 300px;
+  max-width: 300px;
   border-radius: 5px;
+  min-height: 150px;
+  min-height: 150%;
 }
 .item-price {
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 2px;
+  justify-content: center;
+  flex-direction: column;
+}
+.item-price-price {
+  justify-self: flex-start;
 }
 img {
   width: 100%;
@@ -101,7 +120,7 @@ img {
 .watch-video-button {
   background-color: white;
   font-weight: bold;
-  font-size: 0.6rem;
+  font-size: 1rem;
   font-family: monospace;
   color: red;
   width: 100%;
@@ -115,8 +134,46 @@ img {
 .add-order-button::before {
   content: "🧺";
 }
-.watch-add {
-  display: flex;
+.add-order-button {
+  background-color: #ffff1f;
+}
+
+.item-price-button {
+  align-self: flex-end;
+}
+/* style for the nav list */
+li {
+  list-style-type: none;
   width: 100%;
-  justify-content: space-between;
+}
+
+.nav-item {
+  top: 0;
+  width: 100%;
+  background-color: rgb(241, 86, 86);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  -webkit-box-shadow: 5px 5px 20px 0px #000000;
+  box-shadow: 0px 5px 15px 0px white;
+  text-shadow: 7px -3px 8px #ce5937;
+}
+.menu-nav-item {
+  width: 150%;
+  font-family: cursive;
+  color: white;
+}
+.order-count {
+  background: white;
+  color: red;
+  width: 15px;
+  height: 15px;
+  border-radius: 5px;
+}
+.cartmenu {
+  display: flex;
+  flex-direction: row;
 }
