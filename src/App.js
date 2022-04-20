@@ -1,4 +1,5 @@
 import "./App.css";
+import { Cart } from "./components/Cart";
 import Menu from "./components/Menu";
 
 function App() {
@@ -15,9 +16,10 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="nav-item">
-        <Menu></Menu>
-      </div>
+      {/* <div className="nav-item">
+        <Cart></Cart>
+        <Menu />
+      </div> */}
       <div className="main">
         <h3>
           <i className="fa-solid fa-spoon"></i>
