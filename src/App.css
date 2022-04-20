@@ -10,9 +10,23 @@
   color: white;
   padding: 2px;
 }
-.header-container {
+.header-container,
+.main,
+.course {
   border: 1px solid;
   border-radius: 5px;
   display: flex;
-  padding: 3px;
+  justify-content: space-between;
+  padding: 5px;
+}
+.menu-button {
+  font-size: 30px;
+}
+.main {
+  flex-direction: column;
+}
+.course {
+  margin-top: 3px;
+  display: flex;
+  justify-content: center;
 }
