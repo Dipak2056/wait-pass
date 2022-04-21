@@ -140,7 +140,61 @@ function App() {
         </div>
         <div className="course">
           <div className="course-title">
-            <h4 className="course-startup">entree</h4>
+            <h4 className="course-startup">{menudata.data.entree[0].course}</h4>
+          </div>
+          <div className="course-body">
+            {menudata.data.entree.map((item) => {
+              return (
+                <div className="item">
+                  <div className="item-detail">
+                    <div className="item-detail-header">
+                      <h5>{item.name}</h5>
+                      <div className="item-detail-badges">
+                        {item.vegan && (
+                          <div className="badge-item">
+                            <i className="fa-solid fa-leaf vegan"></i>
+                          </div>
+                        )}
+                        {item.spicy && (
+                          <div className="badge-item">
+                            <i className="fa-solid fa-pepper-hot spicy"></i>
+                          </div>
+                        )}
+                        {item.glutenfree && (
+                          <div className="badge-item">
+                            <i className="fa-solid fa-bread-slice"></i>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    <div className="item-detail-discription">
+                      <p>{item.description}</p>
+                      <div className="watch-video">
+                        <button className="watch-video-button">
+                          Watch video
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="item-image">
+                    <img src={item.imageUrl} alt="" />
+                  </div>
+                  <div className="item-price">
+                    <div className="item-price-price">
+                      <p>${item.price}</p>
+                    </div>
+                    <div className="item-price-button">
+                      <button
+                        className="watch-video-button add-order-button"
+                        onClick={handleAddtoCart}
+                      >
+                        order
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
         <div className="course">
