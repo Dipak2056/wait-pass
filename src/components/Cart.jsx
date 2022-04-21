@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Cart = () => {
+export const Cart = (props) => {
   return (
     <div className="cart-list">
       <h1 className="cart-header">ORDER-LIST</h1>

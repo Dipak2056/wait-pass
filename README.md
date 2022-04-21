@@ -9,6 +9,7 @@ saturday or tomorrow i will come and start doing pure react..
 that will include following tasks
 
 1.  making the menu and cart-button toggling so that the components renders accordingly
+    ------this part is done and pushed to github
 2.  making the cart-add and cart-subtract-button reactive so that adding and subtracting actually add or subtract the value
 3.  create the dummy menu with the item and all other required objects
 4.  making the dummy object and store it in some file and try to read that file using each and every course-component

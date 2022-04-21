@@ -1,25 +1,42 @@
+import { useState } from "react";
 import "./App.css";
 import { Cart } from "./components/Cart";
 import Menu from "./components/Menu";
 
 function App() {
+  //to show the components on click
+  const [showcart, setShowcart] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
+  //to show or hide the cart
+  const handleOnCartClick = () => {
+    setShowcart(!showcart);
+    setShowMenu(false);
+  };
+  //to show or hide the nav-menu-component
+  const handleOnMenuClick = () => {
+    setShowMenu(!showMenu);
+    setShowcart(false);
+  };
+
   return (
     <div className="wrapper">
       <div className="header-container">
         <h1>WAIT PASS</h1>
         <div className="cartmenu">
-          <div className="cart-button">
+          <div className="cart-button" onClick={handleOnCartClick}>
             <i className="fa-solid fa-cart-shopping"></i>
           </div>
-          <div className="menu-button">
+          <div className="menu-button" onClick={handleOnMenuClick}>
             <i className="fa-solid fa-bars"></i>
           </div>
         </div>
       </div>
-      {/* <div className="nav-item">
-        <Cart></Cart>
-        <Menu />
-      </div> */}
+      {
+        <div className="nav-item">
+          {showcart && <Cart setShowcart={setShowcart} />}
+          {showMenu && <Menu setShowMenu={setShowMenu} />}
+        </div>
+      }
       <div className="main">
         <h3>
           <i className="fa-solid fa-spoon"></i>

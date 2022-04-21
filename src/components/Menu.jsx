@@ -1,6 +1,6 @@
 import React from "react";
 
-const Menu = () => {
+const Menu = (props) => {
   return (
     <div className="menu-nav-item">
       <ul>
