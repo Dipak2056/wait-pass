@@ -18,7 +18,7 @@ function App() {
     setShowMenu(!showMenu);
     setShowcart(false);
   };
-  //for the cart
+  //props for the cart
   const [price, setPrice] = useState(15);
   const [count, setCount] = useState(1);
   const [totalPrice, setTotalPrice] = useState();
@@ -29,18 +29,15 @@ function App() {
     else {
       alert("please press delete button to remove item from cart");
     }
-    console.log(count);
     setTotalPrice((count - 1) * price);
   };
   const handleOnAdd = () => {
     setCount(count + 1);
     setTotalPrice((count + 1) * price);
   };
-  console.log(menudata);
   const handleAddtoCart = (e) => {
-    let ordered = "Added to cart";
+    let ordered = "Added";
     e.target.innerHTML = ordered;
-    console.log(ordered);
   };
 
   return (
@@ -87,99 +84,58 @@ function App() {
             </h4>
           </div>
           <div className="course-body">
-            <div className="item">
-              <div className="item-detail">
-                <div className="item-detail-header">
-                  <h5>{menudata.data.startup[0].name}</h5>
-                  <div className="item-detail-badges">
-                    {menudata.data.startup[0].vegan && (
-                      <div className="badge-item">
-                        <i className="fa-solid fa-leaf vegan"></i>
+            {menudata.data.startup.map((item) => {
+              return (
+                <div className="item">
+                  <div className="item-detail">
+                    <div className="item-detail-header">
+                      <h5>{item.name}</h5>
+                      <div className="item-detail-badges">
+                        {item.vegan && (
+                          <div className="badge-item">
+                            <i className="fa-solid fa-leaf vegan"></i>
+                          </div>
+                        )}
+                        {item.spicy && (
+                          <div className="badge-item">
+                            <i className="fa-solid fa-pepper-hot spicy"></i>
+                          </div>
+                        )}
+                        {item.glutenfree && (
+                          <div className="badge-item">
+                            <i className="fa-solid fa-bread-slice"></i>
+                          </div>
+                        )}
                       </div>
-                    )}
-                    {menudata.data.startup[0].spicy && (
-                      <div className="badge-item">
-                        <i className="fa-solid fa-pepper-hot spicy"></i>
-                      </div>
-                    )}
-                    {menudata.data.startup[0].glutenfree && (
-                      <div className="badge-item">
-                        <i className="fa-solid fa-bread-slice"></i>
-                      </div>
-                    )}
-                  </div>
-                </div>
-                <div className="item-detail-discription">
-                  <p>{menudata.data.startup[0].description}</p>
-                  <div className="watch-video">
-                    <button className="watch-video-button">Watch video</button>
-                  </div>
-                </div>
-              </div>
-              <div className="item-image">
-                <img src={menudata.data.startup[0].imageUrl} alt="" />
-              </div>
-              <div className="item-price">
-                <div className="item-price-price">
-                  <p>${menudata.data.startup[0].price}</p>
-                </div>
-                <div className="item-price-button">
-                  <button
-                    className="watch-video-button add-order-button"
-                    onClick={handleAddtoCart}
-                  >
-                    order
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="item">
-              <div className="item-detail">
-                <div className="item-detail-header">
-                  <h5>Beef-Burger</h5>
-                  <div className="item-detail-badges">
-                    <div className="badge-item">
-                      <i className="fa-solid fa-pepper-hot spicy"></i>
                     </div>
-                    <div className="badge-item">
-                      <i className="fa-solid fa-leaf vegan"></i>
+                    <div className="item-detail-discription">
+                      <p>{item.description}</p>
+                      <div className="watch-video">
+                        <button className="watch-video-button">
+                          Watch video
+                        </button>
+                      </div>
                     </div>
-                    <div className="badge-item">
-                      <i className="fa-solid fa-bread-slice"></i>
+                  </div>
+                  <div className="item-image">
+                    <img src={item.imageUrl} alt="" />
+                  </div>
+                  <div className="item-price">
+                    <div className="item-price-price">
+                      <p>${item.price}</p>
+                    </div>
+                    <div className="item-price-button">
+                      <button
+                        className="watch-video-button add-order-button"
+                        onClick={handleAddtoCart}
+                      >
+                        order
+                      </button>
                     </div>
                   </div>
                 </div>
-                <div className="item-detail-discription">
-                  <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Sit, obcaecati. Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit.
-                  </p>
-                  <div className="watch-video">
-                    <button className="watch-video-button">Watch video</button>
-                  </div>
-                </div>
-                <div className="watch-add">
-                  <div className="add-order"></div>
-                </div>
-              </div>
-              <div className="item-image">
-                <img
-                  src="https://media.istockphoto.com/photos/cheeseburger-with-tomato-and-lettuce-on-wooden-board-picture-id1309352410?s=612x612"
-                  alt=""
-                />
-              </div>
-              <div className="item-price">
-                <div className="item-price-price">
-                  <p>$5.5</p>
-                </div>
-                <div className="item-price-button">
-                  <button className="watch-video-button add-order-button">
-                    order
-                  </button>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
         <div className="course">
