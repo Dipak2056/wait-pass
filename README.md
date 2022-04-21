@@ -12,7 +12,9 @@ that will include following tasks
    ------this part is done and pushed to github
 2. # making the cart-add and cart-subtract-button reactive so that adding and subtracting actually add or subtract the value
    -------this is functional in one item as i have applied it in only one item
-3. create the dummy menu with the item and all other required objects
+   Note:- ---> it has tiny bug which i will discuss with my trainer next tuesday
+3. # create the dummy menu with the item and all other required objects
+   ------working in this one
 4. making the dummy object and store it in some file and try to read that file using each and every course-component
 5. clicking the order-button should add the item in the cart
 6. should be able to capture the final order object

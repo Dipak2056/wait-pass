@@ -17,6 +17,24 @@ function App() {
     setShowMenu(!showMenu);
     setShowcart(false);
   };
+  //for the cart
+  const [price, setPrice] = useState(15);
+  const [count, setCount] = useState(1);
+  const [totalPrice, setTotalPrice] = useState();
+  const [finalTotal, setfinalTotal] = useState();
+  //to increase or decrease the count on pressing button
+  const handleOnSubtract = () => {
+    if (count >= 1) setCount(count - 1);
+    else {
+      alert("please press delete button to remove item from cart");
+    }
+    console.log(count);
+    setTotalPrice((count - 1) * price);
+  };
+  const handleOnAdd = () => {
+    setCount(count + 1);
+    setTotalPrice((count + 1) * price);
+  };
 
   return (
     <div className="wrapper">
@@ -33,7 +51,17 @@ function App() {
       </div>
       {
         <div className="nav-item">
-          {showcart && <Cart setShowcart={setShowcart} />}
+          {showcart && (
+            <Cart
+              setShowcart={setShowcart}
+              price={price}
+              count={count}
+              totalPrice={totalPrice}
+              finalTotal={finalTotal}
+              handleOnAdd={handleOnAdd}
+              handleOnSubtract={handleOnSubtract}
+            />
+          )}
           {showMenu && <Menu setShowMenu={setShowMenu} />}
         </div>
       }
