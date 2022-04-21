@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { Cart } from "./components/Cart";
 import Menu from "./components/Menu";
+import menudata from "./menudata";
 
 function App() {
   //to show the components on click
@@ -34,6 +35,12 @@ function App() {
   const handleOnAdd = () => {
     setCount(count + 1);
     setTotalPrice((count + 1) * price);
+  };
+  console.log(menudata);
+  const handleAddtoCart = (e) => {
+    let ordered = "Added to cart";
+    e.target.innerHTML = ordered;
+    console.log(ordered);
   };
 
   return (
@@ -75,48 +82,52 @@ function App() {
         </h3>
         <div className="course">
           <div className="course-title">
-            <h4 className="course-startup">start-up</h4>
+            <h4 className="course-startup">
+              {menudata.data.startup[0].course}
+            </h4>
           </div>
           <div className="course-body">
             <div className="item">
               <div className="item-detail">
                 <div className="item-detail-header">
-                  <h5>Beef-Burger</h5>
+                  <h5>{menudata.data.startup[0].name}</h5>
                   <div className="item-detail-badges">
-                    <div className="badge-item">
-                      <i className="fa-solid fa-pepper-hot spicy"></i>
-                    </div>
-                    <div className="badge-item">
-                      <i className="fa-solid fa-leaf vegan"></i>
-                    </div>
-                    <div className="badge-item">
-                      <i className="fa-solid fa-bread-slice"></i>
-                    </div>
+                    {menudata.data.startup[0].vegan && (
+                      <div className="badge-item">
+                        <i className="fa-solid fa-leaf vegan"></i>
+                      </div>
+                    )}
+                    {menudata.data.startup[0].spicy && (
+                      <div className="badge-item">
+                        <i className="fa-solid fa-pepper-hot spicy"></i>
+                      </div>
+                    )}
+                    {menudata.data.startup[0].glutenfree && (
+                      <div className="badge-item">
+                        <i className="fa-solid fa-bread-slice"></i>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className="item-detail-discription">
-                  <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Sit, obcaecati. Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit.
-                  </p>
+                  <p>{menudata.data.startup[0].description}</p>
                   <div className="watch-video">
                     <button className="watch-video-button">Watch video</button>
                   </div>
                 </div>
               </div>
               <div className="item-image">
-                <img
-                  src="https://media.istockphoto.com/photos/cheeseburger-with-tomato-and-lettuce-on-wooden-board-picture-id1309352410?s=612x612"
-                  alt=""
-                />
+                <img src={menudata.data.startup[0].imageUrl} alt="" />
               </div>
               <div className="item-price">
                 <div className="item-price-price">
-                  <p>$5.5</p>
+                  <p>${menudata.data.startup[0].price}</p>
                 </div>
                 <div className="item-price-button">
-                  <button className="watch-video-button add-order-button">
+                  <button
+                    className="watch-video-button add-order-button"
+                    onClick={handleAddtoCart}
+                  >
                     order
                   </button>
                 </div>
