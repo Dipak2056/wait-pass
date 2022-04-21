@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const Cart = (props) => {
+  const [count, setCount] = useState(1);
+  //to increase or decrease the count on pressing button
+  const handleOnSubtract = () => {
+    setCount(count - 1);
+  };
+  const handleOnAdd = () => {
+    setCount(count + 1);
+  };
+
   return (
     <div className="cart-list">
       <h1 className="cart-header">ORDER-LIST</h1>
@@ -9,8 +18,13 @@ export const Cart = (props) => {
         <div className="food-price">$15</div>
 
         <div className="food-quantity">
-          <button className="subtract-button">-</button>1
-          <button className="add-button">+</button>
+          <button className="subtract-button" onClick={handleOnSubtract}>
+            -
+          </button>
+          {count}
+          <button className="add-button" onClick={handleOnAdd}>
+            +
+          </button>
         </div>
         <div className="delete">
           <i className="fa-solid fa-trash-can"></i>
